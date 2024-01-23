@@ -4,8 +4,11 @@ import { Products } from "./components/Products";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 
+import { CartProvider } from "./context/cart";
+
 import { useFilters } from "./hooks/useFilters";
 import { useState } from "react";
+import { Cart } from "./components/Cart";
 
 function App() {
   const [products] = useState(initialProducts);
@@ -14,9 +17,12 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Products products={filteredProducts} />
-      <Footer filters={filters} />
+      <CartProvider>
+        <Header />
+        <Cart />
+        <Products products={filteredProducts} />
+        <Footer filters={filters} />
+      </CartProvider>
     </>
   );
 }
