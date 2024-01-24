@@ -30,26 +30,26 @@ export const cartReducer = (state, action) => {
         // newState[productInCartIndex].quantity += 1
 
         // 👶 usando el map
-        // const newState = state.map(item => {
-        //   if (item.id === id) {
-        //     return {
-        //       ...item,
-        //       quantity: item.quantity + 1
-        //     }
-        //   }
+        const newState = state.map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+            };
+          }
 
-        //   return item
-        // })
+          return item;
+        });
 
         // ⚡ usando el spread operator y slice
-        const newState = [
-          ...state.slice(0, productInCartIndex),
-          {
-            ...state[productInCartIndex],
-            quantity: state[productInCartIndex].quantity + 1,
-          },
-          ...state.slice(productInCartIndex + 1),
-        ];
+        // const newState = [
+        //   ...state.slice(0, productInCartIndex),
+        //   {
+        //     ...state[productInCartIndex],
+        //     quantity: state[productInCartIndex].quantity + 1,
+        //   },
+        //   ...state.slice(productInCartIndex + 1),
+        // ];
 
         updateLocalStorage(newState);
         return newState;
@@ -69,8 +69,8 @@ export const cartReducer = (state, action) => {
     }
 
     case "CLEAR_CART": {
-      updateLocalStorage(cartInitialState);
-      return cartInitialState;
+      updateLocalStorage([]);
+      return [];
     }
   }
   return state;
