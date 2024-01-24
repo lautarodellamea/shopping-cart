@@ -1,6 +1,6 @@
 import "./Footer.css";
 import { useFilters } from "../hooks/useFilters.jsx";
-import { useCart } from "../hooks/useCart.jsx";
+import { useCart } from "../hooks/useCart.js";
 
 export function Footer() {
   const { filters } = useFilters();

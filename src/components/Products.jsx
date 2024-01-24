@@ -1,6 +1,6 @@
 import "./Products.css";
 import { AddToCartIcon, RemoveFromCartIcon } from "./Icons.jsx";
-import { useCart } from "../hooks/useCart.jsx";
+import { useCart } from "../hooks/useCart.js";
 
 export const Products = ({ products }) => {
   const { addToCart, removeFromCart, cart } = useCart();
@@ -23,7 +23,9 @@ export const Products = ({ products }) => {
               </div>
               <div>
                 <button
-                  style={{ backgroundColor: isProductInCart ? "red" : "#09f" }}
+                  style={{
+                    backgroundColor: isProductInCart ? "red" : "#09f",
+                  }}
                   onClick={() =>
                     isProductInCart
                       ? removeFromCart(product)

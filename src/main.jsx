@@ -11,5 +11,3 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     </FiltersProvider>
   </React.StrictMode>
 );
-
-/* 1 hora */
